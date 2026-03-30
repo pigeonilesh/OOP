@@ -1,4 +1,4 @@
 <Solution>
-  <Project Path="dop/dop.csproj" />
-  <Project Path="OOP/OOP.csproj" />
+  <Project Path="dop/dop.csproj" Id="c7eee7a4-3dcf-48be-be42-d3a6b62227ad" />
+  <Project Path="OOP/OOP.csproj" Id="5333415b-4c10-4501-9724-38254f75ce11" />
 </Solution>

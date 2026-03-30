@@ -10,20 +10,22 @@ namespace dop
     {
         static void Main(string[] args)
         {
-            Book book1 = new Book();
-            Book book2 = new Book("Мертвые души", "Гоголь");
-            Book book3 = new Book("Гарри Поттер", "Джоан Роулинг", 1990, 10000);
-            Book book4 = new Book("Преступление и наказание", "Достоевский", 2024, 3000);
-            double precent = 0;
-            book3.ApplyDiscount(precent);
-            book4.ApplyDiscount(precent);
+            Book[] books = new Book[4];
 
-            book1.PrintInfo();
-            book2.PrintInfo();
-            book3.PrintInfo();
-            book4.PrintInfo();
+            books[0] = new Book();
+            books[1] = new Book("Мертвые души", "Гоголь");
+            books[2] = new Book("Преступление и наказание", "Достоевский", 2024, 3000);
+            books[3] = new Book("Гарри Поттер", "Джоан Роулинг", 1990, 10000);
 
-            book1.GetTotalBooks();
+            books[2].ApplyDiscount(10);
+            books[3].ApplyDiscount(20);
+
+            foreach (var book in books)
+            {
+                book.PrintInfo();
+            }
+
+            Console.WriteLine($"Общее количество книг: {books[0].GetTotalBooks()}");
         }
         public interface IDiscoutable
         {
@@ -37,14 +39,13 @@ namespace dop
             public int Year;
             public double Price;
             private double discountPrecent = 0;
-            public int totalBooksCreated = 0;
+            private static int totalBooksCreated = 0;
             public void ApplyDiscount(double percent)
             {
-                Console.WriteLine($"Введите скидку для книги");
-                percent = Convert.ToInt32(Console.ReadLine());
                 if (percent >= 0 && percent <= 50)
                 {
                     discountPrecent = percent;
+                    Console.WriteLine($"Скидка применена");
                 }
                 else
                 {
@@ -54,15 +55,7 @@ namespace dop
             }
             public double GetDiscountedPrice()
             {
-                if (discountPrecent != 0)
-                {
-                    Price = Price * (1 - discountPrecent / 100);
-                    return Price;
-                }
-                else 
-                {
-                    return Price; 
-                }
+                return Price * (1 - discountPrecent / 100);
             }
             public Book(string t, string a, int y, double p)
             {
@@ -78,7 +71,8 @@ namespace dop
             public Book() : this("Неизвестно") { }
             public void PrintInfo()
             {
-                Console.WriteLine($"Название: {Title}, Автор: {Author}, Год издания: {Year}, Цена: {Price} Цена со скидкой: {GetDiscountedPrice()}");
+                double discountPrecent = GetDiscountedPrice();
+                Console.WriteLine($"Название: {Title}, Автор: {Author}, Год издания: {Year}, Цена: {Price:F2} Цена со скидкой: {discountPrecent:F2}");
             }
             public int GetTotalBooks()
             {

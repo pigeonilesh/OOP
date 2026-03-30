@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="dop/dop.csproj" />
+  <Project Path="OOP/OOP.csproj" />
+</Solution>

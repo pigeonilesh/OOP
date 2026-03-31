@@ -25,7 +25,7 @@ namespace dop
                 book.PrintInfo();
             }
 
-            Console.WriteLine($"Общее количество книг: {books[0].GetTotalBooks()}");
+            Console.WriteLine($"Общее количество книг: {Book.GetTotalBooks()}");
         }
         public interface IDiscoutable
         {
@@ -74,7 +74,7 @@ namespace dop
                 double discountPrecent = GetDiscountedPrice();
                 Console.WriteLine($"Название: {Title}, Автор: {Author}, Год издания: {Year}, Цена: {Price:F2} Цена со скидкой: {discountPrecent:F2}");
             }
-            public int GetTotalBooks()
+            public static int GetTotalBooks()
             {
                 return totalBooksCreated;
             }

@@ -13,8 +13,15 @@ namespace pr3
         {
             Console.WriteLine($"Введите курс доллара");
             double usd = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine($"Введите курс евра");
+            Console.WriteLine($"Введите курс евро");
             double euro = Convert.ToDouble(Console.ReadLine());
+            CorrencyConverter.SetRates(usd, euro);
+            Console.WriteLine($"Сколько долларов вы хотите обменять");
+            double usdConvert = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine($"Вы получите {CorrencyConverter.ConvertUsdToRub(usdConvert)} руб");
+            Console.WriteLine($"Сколько евро вы хотите обменять");
+            double euroConvert = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine($"Вы получите {CorrencyConverter.ConvertEuroToRub(euroConvert)} руб");
         }
         class CorrencyConverter
         {
@@ -24,6 +31,7 @@ namespace pr3
             {
                 UsdToRubRate = usdRate;
                 EuroToRubRate = euroRate;
+                Console.WriteLine($"Курсы валют установленны");
             }
             public static double ConvertUsdToRub(double usd)
             {

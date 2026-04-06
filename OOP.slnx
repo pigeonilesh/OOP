@@ -1,9 +1,11 @@
 <Solution>
   <Project Path="dop/dop.csproj" Id="c7eee7a4-3dcf-48be-be42-d3a6b62227ad" />
+  <Project Path="dop2/dop2.csproj" Id="7a9461cd-0d70-4d98-9c6a-a990dc22fdd1" />
   <Project Path="OOP/OOP.csproj" Id="5333415b-4c10-4501-9724-38254f75ce11" />
   <Project Path="pr1/pr1.csproj" Id="92dfe8da-55e5-4a84-aafb-4b6658cd8572" />
   <Project Path="pr2/pr2.csproj" Id="3ea625e9-37b5-430f-a51e-ab9bc7d83db5" />
   <Project Path="pr3/pr3.csproj" Id="74b97344-20a6-4419-b9be-c6cec1e10e4c" />
   <Project Path="pr4/pr4.csproj" Id="a8aae65f-d01c-4fb3-a229-c44b353b22d9" />
+  <Project Path="pr5/pr5.csproj" Id="de959083-b92e-4817-aab9-95f6ef93ec68" />
   <Project Path="static/stat.csproj" Id="63103266-e063-4f01-85f2-7abedd71dd5b" />
 </Solution>

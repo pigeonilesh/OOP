@@ -10,6 +10,36 @@ namespace dop2
     {
         static void Main(string[] args)
         {
+            PizzaOrder.SetShopName("Додо Пица");
+            PizzaOrder.SetDiscount(10);
+
+            Console.WriteLine($"Навзание заведения: {PizzaOrder.shopName}");
+            Console.WriteLine($"Скидка в заведении: {PizzaOrder.discountPercent}%");
+            Console.WriteLine();
+
+            PizzaOrder order1 = new PizzaOrder("Маргарита", 2, 500);
+            Console.WriteLine($"Заказ №1");
+            order1.ProcessOrder();
+            Console.WriteLine();
+
+            PizzaOrder order2 = new PizzaOrder("Маргарита", 1, 600);
+            Console.WriteLine($"Заказ №2");
+            order2.ProcessOrder();
+            Console.WriteLine();
+
+            PizzaOrder.PrintStatistics();
+
+            Console.WriteLine($"Изменение скидка в магазине на 20%");
+            PizzaOrder.SetDiscount(20);
+            Console.WriteLine();
+
+            PizzaOrder order3 = new PizzaOrder("Гавайская", 3, 550);
+            Console.WriteLine($"Заказ №3");
+            order3.ProcessOrder();
+            Console.WriteLine();
+
+            Console.WriteLine($"Итогавая статистика:");
+            PizzaOrder.PrintStatistics();
         }
     }
     class PizzaOrder
@@ -20,8 +50,8 @@ namespace dop2
 
         private static double totalRevenue;
         private static int totalPizzaSold;
-        private static string shopName;
-        private static double discountPercent = 0;
+        public static string shopName;
+        public static double discountPercent = 0;
 
         public PizzaOrder()
         {
@@ -65,6 +95,7 @@ namespace dop2
             if (percent >= 0 && percent <= 30)
             {
                 discountPercent = percent;
+                Console.WriteLine($"Скидка изменена");
             }
             else
             {

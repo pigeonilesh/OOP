@@ -46,17 +46,17 @@ namespace dop2
     {
         public string PizzaName;
         public int Quantity;
-        public int PricePerPizza;
+        public double PricePerPizza;
 
-        private static double totalRevenue;
-        private static int totalPizzaSold;
-        public static string shopName;
+        private static double totalRevenue = 0;
+        private static int totalPizzaSold = 0;
+        public static string shopName = "Не установлено";
         public static double discountPercent = 0;
 
         public PizzaOrder()
         {
             PizzaName = "Неизвестно";
-            Quantity = 0;
+            Quantity = 1;
             PricePerPizza = 0;
         }
         public PizzaOrder(string pizzaName, int quantity, int pricePerPizza): this()
@@ -65,8 +65,7 @@ namespace dop2
             Quantity = quantity;
             PricePerPizza = pricePerPizza;
         }
-
-        public int CalculateTotalPrice()
+        public double CalculateTotalPrice()
         {
             return Quantity * PricePerPizza;
         }
